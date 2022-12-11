@@ -24,12 +24,14 @@ class NewNotification implements ShouldBroadcastNow
     public $comment;
     public $date;
     public $time;
+    public $user_name;
 
     public function __construct($data)
     {
         $this->post_id = $data['post_id'];
         $this->user_id = $data['user_id'];
         $this->comment = $data['comment'];
+        $this->user_name = $data['user_name'];
         $this->date = date("Y-m-d", strtotime(Carbon::now()));
         $this->time = date("h:i A", strtotime(Carbon::now()));
     }

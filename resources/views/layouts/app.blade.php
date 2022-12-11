@@ -144,6 +144,30 @@
     });
 </script>
 <script src="{{asset('js/pusherNotifications.js')}}"></script>
+<script>
+
+    $(document).on('click', '#checkout', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'get',
+            url: "http://127.0.0.1:8000/get-checkout-id",
+            data: {
+                price: $('#price').text(),
+                offer_id: '2',
+            },
+            success: function (data) {
+                if (data.status == true) {
+
+                    $('#showPayForm').empty().html(data.content);
+
+                } else {
+                }
+            }, error: function (reject) {
+            }
+        });
+    });
+
+</script>
 
 
 

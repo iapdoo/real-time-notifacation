@@ -40,6 +40,7 @@ class HomeController extends Controller
         $data=[
             'post_id'=>$request->post_id,
             'user_id'=>auth()->id(),
+            'user_name'=>auth()->user()->name,
             'comment'=>$request->post_content,
         ];
         event(new  NewNotification($data));
