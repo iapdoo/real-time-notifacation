@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Offers\OfferController;
-use App\Http\Controllers\PaymentProviderController;
+use App\Http\Controllers\Payment\PaymentProviderController;
 use Illuminate\Support\Facades\Route;
+
 define('PAGINATION_COUNT',10);
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'Offers
     Route::get('details/{offer_id}', [OfferController::class, 'show'])->name('offers.show');
 });
 
-Route::get('get-checkout-id', [PaymentProviderController::class, 'getCheckOutId'])->name('offers.checkout');
+Route::get('get-checkout-id/{price}', [PaymentProviderController::class, 'getCheckOutId'])->name('offers.checkout');
 
 ################End paymentGateways Routes ########################
 

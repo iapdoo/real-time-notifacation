@@ -64,26 +64,5 @@
 
 @section('scripts')
 
-    <script>
-        $(document).on('click', '#checkout', function (e) {
-              e.preventDefault();
-             $.ajax({
-                type: 'get',
-                url: "{{route('offers.checkout')}}",
-                data: {
-                    price: $('#price').text(),
-                    offer_id: '{{$offer -> id}}',
-                },
-                success: function (data) {
-                    if (data.status == true) {
 
-                        $('#showPayForm').empty().html(data.content);
-
-                    } else {
-                     }
-                }, error: function (reject) {
-                }
-            });
-        });
-    </script>
 @stop
